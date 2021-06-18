@@ -1,0 +1,11 @@
+{% extends 'urok/wrapper.html' %}
+
+{% block content %}
+
+    {% for sinf in sinfi %}
+
+<a href="{% url 'category' sinf.id %}">{{ sinf.room }}</a>
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'urok/wrapper.html' %}
+
+{% block content %}
+
+    {% for form in forms %}
+
+<a href="{% url 'oquch' form.id %}">{{ form.ism }}</a>
+
+    {% endfor %}
+
+{% endblock %}

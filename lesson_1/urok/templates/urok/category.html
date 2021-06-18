@@ -1,0 +1,11 @@
+{% extends 'urok/wrapper.html' %}
+
+{% block content %}
+
+    {% for topic in topics %}
+
+<a href="{% url 'oquch' topic.id %}">{{ topic.ism }}</a>
+
+{% endfor %}
+
+{% endblock %}

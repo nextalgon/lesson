@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>maymunxona</title>
+</head>
+<body>
+    <h1>maktabimizga xush kelibsiz</h1>
+    <a href="{% url 'home' %}"><p>bosh saxifa</p></a>
+<a href="{% url 'pupil' %}"><p>o'quvchi qo'shish</p></a>
+<a href="{% url 'classroom' %}"><p>sinf qo'shish</p></a>
+<a href="{% url 'royxat' %}"><p>o'quvchilar ro'yxati</p></a>
+<a href="{% url 'sinflar' %}"><p>sinflar ro'yxati</p></a>
+{% block content %}
+{% endblock %}
+</body>
+</html>
