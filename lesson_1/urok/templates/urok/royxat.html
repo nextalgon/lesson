@@ -1,11 +1,12 @@
 {% extends 'urok/wrapper.html' %}
 
 {% block content %}
-
+<h1>barcha oquvchilar</h1>
+<h2>barcha o'quvchilar soni: {{ forms | length }} ta</h2>
     {% for form in forms %}
-
-<a href="{% url 'oquch' form.id %}">{{ form.ism }}</a>
-
+<br>
+<a href="{% url 'oquch' form.id %}">{{ form.ism }}</a> sinfi: <a href="{% url 'category' form.gradue.id %}">{{ form.gradue }}</a>
+<br>
     {% endfor %}
 
 {% endblock %}

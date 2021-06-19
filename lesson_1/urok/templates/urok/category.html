@@ -1,11 +1,12 @@
 {% extends 'urok/wrapper.html' %}
 
 {% block content %}
-
+    <h1>sinfdagi o'quvchilar</h1>
+<h2>sinfdagi oquvchilar soni: {{ topics | length }} ta</h2>
     {% for topic in topics %}
-
+<br>
 <a href="{% url 'oquch' topic.id %}">{{ topic.ism }}</a>
-
+<br>
 {% endfor %}
 
 {% endblock %}

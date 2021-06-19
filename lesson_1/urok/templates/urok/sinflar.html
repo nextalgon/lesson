@@ -1,11 +1,13 @@
 {% extends 'urok/wrapper.html' %}
 
 {% block content %}
-
+    <h1>mavjud sinflar</h1>
+    <h2>sinflar soni {{ sinfi | length }} ta</h2>
+<br>
     {% for sinf in sinfi %}
 
 <a href="{% url 'category' sinf.id %}">{{ sinf.room }}</a>
-
+<br>
     {% endfor %}
 
 {% endblock %}
