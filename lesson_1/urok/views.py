@@ -1,8 +1,19 @@
 from django.shortcuts import render, redirect
+from .filters import PupilFilter
 from .forms import PupilForm, ClassroomForm
 from .models import Classroom, Pupil
 from django.core.paginator import Paginator
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
+
+
+class PupilListView(ListView):
+    model = Pupil
+    template_name = 'urok/Pupil_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = PupilFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
 
 def index(request):
@@ -12,6 +23,7 @@ def index(request):
 def pupil(request):
     if request.method == "POST":
         form = PupilForm(request.POST)
+
         if form.is_valid():
             form.save()
             return redirect('home')

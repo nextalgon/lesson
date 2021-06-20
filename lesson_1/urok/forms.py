@@ -1,4 +1,4 @@
-from django.forms import ModelForm, NumberInput, TextInput, EmailInput
+from django.forms import ModelForm, NumberInput, TextInput, EmailInput, DateInput
 from .models import Pupil, Classroom
 
 
@@ -25,7 +25,7 @@ class PupilForm(ModelForm, NumberInput, TextInput, EmailInput):
                 'class': 'form-control',
                 'placeholder': 'familyasini kiriting'}),
 
-            "age": NumberInput(attrs={
+            "age": DateInput(attrs={
                 'class': 'form-control',
                 'type': 'date',
                 'placeholder': 'yoshini kiriting'

@@ -15,10 +15,10 @@ class Classroom(models.Model):
 class Pupil(models.Model):
     ism = models.CharField(max_length=50, verbose_name='ism', null=True)
     surname = models.CharField(max_length=50, verbose_name="familya", null=True)
-    age = models.CharField(verbose_name="yosh", max_length=30)
+    age = models.DateField(verbose_name="yosh")
     gradue = models.ForeignKey(Classroom, verbose_name='sinfi', on_delete=models.CASCADE)
     email = models.EmailField(verbose_name='email', null=True)
-    time = models.DateField(verbose_name='vaxt', null=True)
+    time = models.DateField(verbose_name='vaxt', null=True, auto_now_add=True)
 
     def __str__(self):
         return self.ism

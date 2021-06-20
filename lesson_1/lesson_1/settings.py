@@ -38,12 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-
-
-
-
-    'urok'
+    'django_filters',
+    'bootstrapform',
+    'urok',
 
 
 

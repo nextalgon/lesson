@@ -10,5 +10,6 @@ urlpatterns = [
     path('royxat/', views.royxat, name='royxat'),
     path('sinflar/', views.sinflar, name='sinflar'),
     path('oquch/<int:pk>/', Oquch.as_view(), name='oquch'),
-    path('category/<int:gradue_id>/', views.category, name="category")
+    path('category/<int:gradue_id>/', views.category, name="category"),
+    path('search/', views.PupilListView.as_view(), name='search')
 ]
