@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .filters import PupilFilter
-from .forms import PupilForm, ClassroomForm
-from .models import Classroom, Pupil
+from .forms import PupilForm, ClassroomForm, BahoForm
+from .models import Classroom, Pupil, Baho
 from django.core.paginator import Paginator
 from django.views.generic import DetailView, ListView
 
@@ -32,6 +32,18 @@ def pupil(request):
     return render(request, 'urok/pupil.html', {'form': form})
 
 
+def baho(request):
+    if request.method == "POST":
+        form = BahoForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = BahoForm()
+    return render(request, 'urok/baho.html', {'form': form})
+
+
 def classroom(request):
     if request.method == "POST":
         form = ClassroomForm(request.POST)
@@ -58,6 +70,11 @@ class Oquch(DetailView):
     model = Pupil
     template_name = 'urok/oquch.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['bahos'] = Baho.objects.all()
+        return context
+
 
 def category(request, gradue_id):
     page = request.GET.get('page')
@@ -65,4 +82,6 @@ def category(request, gradue_id):
     all_topics = Pupil.objects.filter(gradue=categ)
     paginator = Paginator(all_topics, 10)
     topics = paginator.get_page(page)
-    return render(request, 'urok/category.html', {'topics': topics})
+    bahos = Classroom.objects.all()
+    forms = Baho.objects.all()
+    return render(request, 'urok/category.html', {'topics': topics, 'bahos': bahos, 'forms': forms})

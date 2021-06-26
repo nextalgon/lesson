@@ -1,15 +1,16 @@
 from django.forms import ModelForm, NumberInput, TextInput, EmailInput, DateInput
-from .models import Pupil, Classroom
+from .models import Pupil, Classroom, Baho
 
 
 class ClassroomForm(ModelForm):
     class Meta:
         model = Classroom
-        fields = ['room']
+        fields = ['room', 'fan']
         widgets = {
             "room": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'sinfni kiriting'})}
+                'placeholder': 'sinfni kiriting'}),
+        }
 
 
 class PupilForm(ModelForm, NumberInput, TextInput, EmailInput):
@@ -35,3 +36,9 @@ class PupilForm(ModelForm, NumberInput, TextInput, EmailInput):
                 'placeholder': 'emailni kiriting'
             })
         }
+
+
+class BahoForm(ModelForm):
+    class Meta:
+        model = Baho
+        fields = ['name', 'lesson', 'baho']

@@ -8,4 +8,9 @@
 <p>sinfi: {{ object.gradue }}</p>
 <p>contact: {{ object.email }}</p>
 <p>{{ object.time }} dan beri oqivoti</p>
+{% for baho in bahos %}
+{% if object.ism == baho.name.ism %}
+fan: {{ baho.lesson }} - olgan bahosi: {{ baho.baho }}  qoyilgan vaxti: {{ baho.data }} <br>
+{% endif %}
+{% endfor %}
 {% endblock %}

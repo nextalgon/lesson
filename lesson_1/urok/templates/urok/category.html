@@ -1,23 +1,19 @@
 {% extends 'urok/wrapper.html' %}
 
 {% block content %}
-    <h1>sinfdagi o'quvchilar</h1>
+
+<h1>sinfdagi o'quvchilar </h1>
 <h2>sinfdagi oquvchilar soni: {{ topics | length }} ta</h2>
 
 
-<!--<form-->
-
-<!--        method="post">-->
-<!--    {% csrf_token %}-->
-<!--    <p>shu sinfga o'quvchi qo'shish</p>-->
-<!--    <a href="{% url 'pupil'  %}"><input type="submit" value="qoshish"></a>-->
-
-
-<!--</form>-->
-    {% for topic in topics %}
+ {% for topic in topics %}
 <br>
 <a href="{% url 'oquch' topic.id %}">{{ topic.ism }}</a>
 <br>
 {% endfor %}
 
+{% for form in forms %}
+ushbu sinf oqiydgan fanlar: {{ form.lesson.name }}<br>
+
+{% endfor %}
 {% endblock %}

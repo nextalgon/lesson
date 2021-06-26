@@ -5,7 +5,7 @@
 <h2>barcha o'quvchilar soni: {{ forms | length }} ta</h2>
     {% for form in forms %}
 <br>
-<a href="{% url 'oquch' form.id %}">{{ form.ism }}</a> sinfi: <a href="{% url 'category' form.gradue.id %}">{{ form.gradue }}</a>
+<a href="{% url 'oquch' form.id %}">{{ form.ism }}</a> sinfi: {{ form.gradue }}
 <br>
     {% endfor %}
 
